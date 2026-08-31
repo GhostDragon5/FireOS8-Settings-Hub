@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FireOS8 Settings Hub</string>
+    <string name="section_label">SYSTEM SETTINGS</string>
+    <string name="subtitle">Fire OS 8 settings</string>
+    <string name="display_sounds">Display, Sound &amp; HDMI-CEC</string>
+    <string name="network">Network &amp; Wi-Fi</string>
+    <string name="apps">Apps &amp; Notifications</string>
+    <string name="controllers">Controllers &amp; Bluetooth</string>
+    <string name="device">Device Information</string>
+    <string name="account">My Account</string>
+    <string name="accessibility">Accessibility</string>
+    <string name="credits">Made By GhostDragon5 | Github: https://github.com/GhostDragon5/</string>
+    <string name="close">Close</string>
+    <string name="root_error">Root access is unavailable or was denied.</string>
+</resources>

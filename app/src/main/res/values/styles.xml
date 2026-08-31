@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.FireOS8SettingsHub" parent="android:style/Theme.Material.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowActionModeOverlay">true</item>
+        <item name="android:colorAccent">@color/surface_focused</item>
+        <item name="android:navigationBarColor">@color/background</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+    <style name="Widget.FireOS8SettingsHub.Button" parent="android:style/Widget.Material.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">72dp</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="android:background">@drawable/tv_button_background</item>
+        <item name="android:gravity">center_vertical|start</item>
+        <item name="android:paddingHorizontal">28dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@drawable/tv_button_text</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="Widget.FireOS8SettingsHub.CloseButton" parent="android:style/Widget.Material.Button">
+        <item name="android:layout_width">156dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:background">@drawable/close_button_background</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@drawable/tv_button_text</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+</resources>

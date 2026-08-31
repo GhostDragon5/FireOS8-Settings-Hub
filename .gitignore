@@ -1,0 +1,17 @@
+# Android Studio and local SDK configuration
+.idea/
+local.properties
+*.iml
+
+# Gradle
+.gradle/
+build/
+app/build/
+
+# Android build artifacts
+*.apk
+*.aab
+
+# Native build directories
+.cxx/
+externalNativeBuild/
