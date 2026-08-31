@@ -1,55 +1,33 @@
 # FireOS8 Settings Hub
 
-Eine schlanke Android-TV-App, die den direkten Zugriff auf versteckte Fire OS 8 Systemeinstellungen ermöglicht.
+## Projektübersicht
+
+Eine minimalistische Android TV / Fire TV App als Kontrollzentrum für den direkten Zugriff auf versteckte System-Einstellungen. Sie kann über jeden kompatiblen Android-TV-Launcher gestartet werden.
+
+## Das Problem
+
+Unter Fire OS 8 blockiert Amazon die Haupteinstellungen, insbesondere **Anzeige & Ton** und damit verbunden die **HDMI-CEC-Steuerung**, so rigoros, dass Standard-ADB-Befehle oder normale App-Aufrufe mit einer `SecurityException` fehlschlagen. Ohne Root ist der Zugriff auf diese Menüs unmöglich.
+
+## Die Lösung
+
+Die App nutzt vorhandene Root-Rechte über `su`, um die geschützten System-Intents direkt und ohne Sicherheitsabfragen im Hintergrund zu triggern. Dadurch werden die gesperrten Menüs, inklusive HDMI-CEC, voll funktionsfähig geöffnet.
+
+## Unterstützte Menüs / Intents
+
+| Menü | Aktivität |
+| --- | --- |
+| Anzeige, Ton & HDMI-CEC | `.tv.display_sounds.DisplayAndSoundsActivity` |
+| Netzwerk & WLAN | `.tv.network.NetworkActivity` |
+| Apps & Benachrichtigungen | `.tv.applications.ApplicationsActivity` |
+| Controller & Bluetooth | `.tv.controllers_bluetooth_devices.ControllersAndBluetoothActivity` |
+| Geräte-Informationen | `.tv.device.DeviceActivity` |
+| Mein Konto | `.tv.my_account.MyAccountActivity` |
+| Barrierefreiheit | `.tv.accessibility.AccessibilityActivity` |
 
 ## Voraussetzungen
 
-- Fire-TV-Gerät mit Fire OS 8
-- Root-Zugriff mit verfügbarer `su`-Binary
-- Installation von Apps aus unbekannten Quellen erlaubt
-
-Ohne Root-Zugriff kann die App die Einstellungen nicht öffnen.
-
-## Funktionen
-
-- Anzeige, Ton und HDMI-CEC
-- Netzwerk und WLAN
-- Apps und Benachrichtigungen
-- Controller und Bluetooth
-- Geräte-Informationen
-- Mein Konto
-- Barrierefreiheit
-- Deutsch und Englisch entsprechend der Systemsprache
-- Fernbedienungsfreundliche D-Pad-Navigation
-
-## Installation
-
-1. Lade die aktuelle `app-debug.apk` aus den [Releases](../../releases) herunter.
-2. Übertrage die APK auf dein Fire-TV-Gerät und installiere sie, beispielsweise über ADB:
-
-```bash
-adb install app-debug.apk
-```
-
-3. Starte **FireOS8 Settings Hub** über den Fire-TV-Launcher.
-
-## Build
-
-Das Projekt kann direkt in Android Studio geöffnet werden. Für einen Debug-Build:
-
-```bash
-./gradlew assembleDebug
-```
-
-Die erzeugte APK befindet sich anschließend unter:
-
-```text
-app/build/outputs/apk/debug/app-debug.apk
-```
-
-## Hinweis
-
-Die verwendeten Fire-OS-Einstellungsaktivitäten sind versionsabhängig. Die App ist für Fire OS 8 ausgelegt.
+- Gerooteter Fire TV Stick mit funktionierender `su`-Binary
+- Möglichkeit zum Sideloading, zum Beispiel via ADB oder Downloader
 
 ## Credits
 
