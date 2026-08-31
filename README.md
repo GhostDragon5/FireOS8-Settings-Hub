@@ -29,6 +29,25 @@ Die App nutzt vorhandene Root-Rechte über `su`, um die geschützten System-Inte
 - Gerooteter Fire TV Stick mit funktionierender `su`-Binary
 - Möglichkeit zum Sideloading, zum Beispiel via ADB oder Downloader
 
+## Installation
+
+### Per ADB
+
+1. Aktiviere ADB-Debugging in den Entwickleroptionen des Fire TV Sticks.
+2. Verbinde den Computer mit dem Gerät und bestätige die Debugging-Anfrage auf dem Fernseher.
+3. Installiere die APK mit:
+
+```bash
+adb install app-debug.apk
+```
+
+### Per Dateimanager
+
+1. Kopiere `app-debug.apk` auf den Fire TV Stick, zum Beispiel per USB, Netzwerkfreigabe oder Downloader.
+2. Öffne die Entwickleroptionen und erlaube dem verwendeten Dateimanager die Installation unbekannter Apps.
+3. Öffne die APK im Dateimanager.
+4. Wähle **Installieren** und starte die App anschließend über einen kompatiblen Android-TV-Launcher.
+
 ## Credits
 
 Made By [GhostDragon5](https://github.com/GhostDragon5/)
