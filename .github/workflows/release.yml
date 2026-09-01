@@ -24,12 +24,22 @@ jobs:
           java-version: "17"
           cache: gradle
 
-      - name: Build versioned APK
+      - name: Decode release keystore
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        run: echo "$KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/release.jks"
+
+      - name: Build signed versioned APK
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon \
+          ./gradlew assembleRelease --no-daemon \
             -PversionCode=${{ github.run_number }} \
-            -PversionName=1.1.${{ github.run_number }}
+            -PversionName=1.1.${{ github.run_number }} \
+            -PreleaseStoreFile="$RUNNER_TEMP/release.jks" \
+            -PreleaseStorePassword="$KEYSTORE_PASSWORD" \
+            -PreleaseKeyPassword="$KEYSTORE_PASSWORD"
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
@@ -37,4 +47,4 @@ jobs:
           tag_name: v1.1.${{ github.run_number }}
           name: FireOS8 Settings Hub v1.1.${{ github.run_number }}
           body_path: CHANGELOG.md
-          files: app/build/outputs/apk/debug/app-debug.apk
+          files: app/build/outputs/apk/release/app-release.apk

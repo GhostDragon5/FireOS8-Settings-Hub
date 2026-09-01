@@ -4,6 +4,9 @@ plugins {
 
 val releaseVersionCode = providers.gradleProperty("versionCode").orNull?.toIntOrNull() ?: 2
 val releaseVersionName = providers.gradleProperty("versionName").orNull ?: "1.1.0"
+val releaseStoreFile = providers.gradleProperty("releaseStoreFile").orNull
+val releaseStorePassword = providers.gradleProperty("releaseStorePassword").orNull
+val releaseKeyPassword = providers.gradleProperty("releaseKeyPassword").orNull
 
 android {
     namespace = "com.fireos8.settingshub"
@@ -24,6 +27,25 @@ android {
         targetSdk = 28
         versionCode = releaseVersionCode
         versionName = releaseVersionName
+    }
+
+    signingConfigs {
+        if (releaseStoreFile != null) {
+            create("release") {
+                storeFile = file(releaseStoreFile)
+                storePassword = releaseStorePassword
+                keyAlias = "fireos8-settings-hub"
+                keyPassword = releaseKeyPassword
+            }
+        }
+    }
+
+    buildTypes {
+        getByName("release") {
+            if (releaseStoreFile != null) {
+                signingConfig = signingConfigs.getByName("release")
+            }
+        }
     }
 }
 
