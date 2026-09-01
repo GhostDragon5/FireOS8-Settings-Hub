@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="background">#101419</color>
+    <color name="scrim">#73000000</color>
     <color name="surface">#1C242E</color>
     <color name="surface_focused">#E5F0FF</color>
     <color name="title">#F4F7FB</color>

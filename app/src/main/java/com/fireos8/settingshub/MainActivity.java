@@ -36,6 +36,9 @@ public class MainActivity extends Activity implements DashboardAdapter.Listener 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        overridePendingTransition(0, 0);
+        getWindow().setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
+        getWindow().setFormat(android.graphics.PixelFormat.TRANSLUCENT);
         setContentView(R.layout.activity_main);
 
         tileRepository = new TileRepository(this);
