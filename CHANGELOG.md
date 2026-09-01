@@ -1,6 +1,9 @@
 # Changelog
 
 Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
+## [1.1.12] - 2026-09-01
+### Changed
+- Show dashboard as launcher overlay
 ## [1.1.11] - 2026-09-01
 
 ### Added
