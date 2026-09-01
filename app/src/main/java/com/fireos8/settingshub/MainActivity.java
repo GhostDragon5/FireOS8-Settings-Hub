@@ -1,7 +1,6 @@
 package com.fireos8.settingshub;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -111,12 +110,37 @@ public class MainActivity extends Activity implements DashboardAdapter.Listener 
     }
 
     private void showUpdateDialog(UpdateInfo update) {
-        new AlertDialog.Builder(this)
-                .setTitle(R.string.update_available)
-                .setMessage(getString(R.string.update_message, update.version))
-                .setNegativeButton(R.string.not_now, null)
-                .setPositiveButton(R.string.update, (dialog, which) -> installUpdate(update))
-                .show();
+        Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_update);
+
+        dialog.findViewById(R.id.update_dialog_panel).setBackground(panelBackground());
+        ((TextView) dialog.findViewById(R.id.update_dialog_title)).setTextColor(currentTheme.title(this));
+        ((TextView) dialog.findViewById(R.id.update_dialog_version)).setText(
+                getString(R.string.update_message, update.version)
+        );
+        ((TextView) dialog.findViewById(R.id.update_dialog_version)).setTextColor(currentTheme.subtitle(this));
+        ((TextView) dialog.findViewById(R.id.update_dialog_changelog_label))
+                .setTextColor(currentTheme.title(this));
+        TextView changelog = dialog.findViewById(R.id.update_dialog_changelog);
+        changelog.setText(update.changelog.isEmpty() ? getString(R.string.no_changelog) : update.changelog);
+        changelog.setTextColor(currentTheme.tileText(this));
+
+        Button cancel = dialog.findViewById(R.id.button_not_now);
+        Button install = dialog.findViewById(R.id.button_update);
+        applyControlTheme(cancel);
+        applyThemeChoice(install, currentTheme);
+        cancel.setOnClickListener(view -> dialog.dismiss());
+        install.setOnClickListener(view -> {
+            dialog.dismiss();
+            installUpdate(update);
+        });
+
+        dialog.setOnShowListener(ignored -> install.requestFocus());
+        dialog.show();
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
     }
 
     private void installUpdate(UpdateInfo update) {

@@ -31,6 +31,8 @@
     <string name="position_saved">Tile position saved.</string>
     <string name="update_available">Update available</string>
     <string name="update_message">Version %1$s is available. Download and install now?</string>
+    <string name="changelog">What\'s new</string>
+    <string name="no_changelog">No changelog was provided for this release.</string>
     <string name="update">Update</string>
     <string name="not_now">Not now</string>
     <string name="update_downloading">Downloading update...</string>

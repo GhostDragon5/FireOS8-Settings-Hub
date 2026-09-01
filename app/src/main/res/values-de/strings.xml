@@ -29,6 +29,8 @@
     <string name="position_saved">Kachelposition gespeichert.</string>
     <string name="update_available">Update verfügbar</string>
     <string name="update_message">Version %1$s ist verfügbar. Jetzt herunterladen und installieren?</string>
+    <string name="changelog">Änderungen</string>
+    <string name="no_changelog">Für diesen Release wurde kein Changelog bereitgestellt.</string>
     <string name="update">Aktualisieren</string>
     <string name="not_now">Nicht jetzt</string>
     <string name="update_downloading">Update wird heruntergeladen...</string>

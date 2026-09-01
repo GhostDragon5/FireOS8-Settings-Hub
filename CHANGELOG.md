@@ -2,6 +2,13 @@
 
 Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
 
+## [Unreleased]
+
+### Changed
+
+- Update-Popup an das Dashboard-Design angepasst
+- Release-Changelog wird im Update-Popup angezeigt
+
 ## [1.1.0] - 2026-09-01
 
 ### Added

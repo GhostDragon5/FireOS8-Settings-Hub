@@ -51,7 +51,8 @@ public final class UpdateManager {
                 String tag = release.getString("tag_name");
                 String apkUrl = findApkUrl(release.getJSONArray("assets"));
                 if (apkUrl != null && isNewer(tag, BuildConfig.VERSION_NAME)) {
-                    callback.onUpdateAvailable(new UpdateInfo(tag, apkUrl));
+                    callback.onUpdateAvailable(new UpdateInfo(tag, apkUrl,
+                            release.optString("body", "")));
                 }
             } catch (Exception ignored) {
                 // An unavailable network or release must not prevent app startup.
