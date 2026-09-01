@@ -1,6 +1,9 @@
 # Changelog
 
 Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
+## [1.1.9] - 2026-09-01
+### Changed
+- Fix black background during open animation
 ## [1.1.8] - 2026-09-01
 
 ### Fixed
