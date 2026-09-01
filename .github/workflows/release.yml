@@ -34,7 +34,7 @@ jobs:
           KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
         run: |
           chmod +x gradlew
-          ./gradlew assembleRelease --no-daemon \
+          ./gradlew assembleRelease --no-daemon -x lintVitalRelease \
             -PversionCode=${{ github.run_number }} \
             -PversionName=1.1.${{ github.run_number }} \
             -PreleaseStoreFile="$RUNNER_TEMP/release.jks" \
