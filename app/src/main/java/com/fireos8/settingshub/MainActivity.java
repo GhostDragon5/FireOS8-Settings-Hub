@@ -43,6 +43,9 @@ public class MainActivity extends Activity implements DashboardAdapter.Listener 
         updateManager = new UpdateManager(this);
         dashboardGrid = findViewById(R.id.dashboard_grid);
         currentTheme = DashboardTheme.fromPreference(tileRepository.loadTheme());
+        ((TextView) findViewById(R.id.app_version)).setText(
+                getString(R.string.version_format, BuildConfig.VERSION_NAME)
+        );
 
         dashboardAdapter = new DashboardAdapter(
                 tileRepository.load(defaultTiles()),
@@ -375,6 +378,7 @@ public class MainActivity extends Activity implements DashboardAdapter.Listener 
         ((TextView) findViewById(R.id.dashboard_title)).setTextColor(currentTheme.title(this));
         ((TextView) findViewById(R.id.dashboard_subtitle)).setTextColor(currentTheme.subtitle(this));
         ((TextView) findViewById(R.id.credits)).setTextColor(currentTheme.subtitle(this));
+        ((TextView) findViewById(R.id.app_version)).setTextColor(currentTheme.subtitle(this));
         ((TextView) findViewById(R.id.edit_hint)).setTextColor(currentTheme.accent(this));
         applyControlTheme((Button) findViewById(R.id.button_theme));
         applyControlTheme((Button) findViewById(R.id.button_edit));

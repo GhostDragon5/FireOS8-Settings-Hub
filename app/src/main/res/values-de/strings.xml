@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="version_format">Version %1$s</string>
     <string name="section_label">SYSTEMEINSTELLUNGEN</string>
     <string name="subtitle">Fire OS 8 Systemeinstellungen</string>
     <string name="display_sounds">Anzeige, Ton &amp; HDMI-CEC</string>

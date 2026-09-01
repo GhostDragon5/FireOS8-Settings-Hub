@@ -18,6 +18,14 @@
         android:paddingVertical="20dp">
 
         <TextView
+            android:id="@+id/app_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:textColor="@color/subtitle"
+            android:textSize="11sp" />
+
+        <TextView
             android:id="@+id/section_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

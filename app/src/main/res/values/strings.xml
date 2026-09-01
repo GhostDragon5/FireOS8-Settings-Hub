@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">FireOS8 Settings Hub</string>
+    <string name="version_format">Version %1$s</string>
     <string name="section_label">SYSTEM SETTINGS</string>
     <string name="subtitle">Fire OS 8 settings</string>
     <string name="display_sounds">Display, Sound &amp; HDMI-CEC</string>
