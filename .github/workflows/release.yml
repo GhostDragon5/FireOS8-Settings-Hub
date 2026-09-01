@@ -1,16 +1,18 @@
 name: Build and Release
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag, for example v1.2.0
+        required: true
+        type: string
 
 permissions:
   contents: write
 
 jobs:
   release:
-    if: ${{ !contains(github.event.head_commit.message, '[skip release]') }}
     name: Build APK and create release
     runs-on: ubuntu-latest
 
@@ -25,9 +27,15 @@ jobs:
           java-version: "17"
           cache: gradle
 
+      - name: Resolve version
+        run: |
+          TAG="${{ inputs.tag }}"
+          VERSION="${TAG#v}"
+          echo "TAG=$TAG" >> "$GITHUB_ENV"
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
       - name: Prepare version changelog
         run: |
-          VERSION="1.1.${{ github.run_number }}"
           DATE="$(date -u +%F)"
           {
             echo "## [$VERSION] - $DATE"
@@ -49,7 +57,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add CHANGELOG.md
-          git diff --cached --quiet || git commit -m "Update changelog for v1.1.${{ github.run_number }} [skip release]"
+          git diff --cached --quiet || git commit -m "Update changelog for $TAG"
           git push
 
       - name: Decode release keystore
@@ -64,7 +72,7 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleRelease --no-daemon -x lintVitalRelease \
             -PversionCode=${{ github.run_number }} \
-            -PversionName=1.1.${{ github.run_number }} \
+            -PversionName="$VERSION" \
             -PreleaseStoreFile="$RUNNER_TEMP/release.jks" \
             -PreleaseStorePassword="$KEYSTORE_PASSWORD" \
             -PreleaseKeyPassword="$KEYSTORE_PASSWORD"
@@ -72,7 +80,7 @@ jobs:
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.1.${{ github.run_number }}
-          name: FireOS8 Settings Hub v1.1.${{ github.run_number }}
+          tag_name: ${{ env.TAG }}
+          name: FireOS8 Settings Hub ${{ env.TAG }}
           body_path: release_notes.md
           files: app/build/outputs/apk/release/app-release.apk
