@@ -1,13 +1,7 @@
 # Changelog
 
 Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
-## [1.1.9] - 2026-09-01
-
-### Changed
-
-- Fix black background during open animation
-
-## [Unreleased]
+## [1.1.10] - 2026-09-01
 
 ### Fixed
 
@@ -15,6 +9,12 @@ Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert
   Theme-Parent auf `Theme.Material.NoActionBar` gewechselt, `windowContentOverlay` auf `@null` gesetzt
   und die Einblendung über eine echte Window-Animation (`Animation.TransparentSlide`) realisiert,
   damit Android keinen schwarzen Render-Buffer mehr unter das aufsteigende Panel legt.
+
+## [1.1.9] - 2026-09-01
+
+### Changed
+
+- Fix black background during open animation
 
 ## [1.1.8] - 2026-09-01
 
