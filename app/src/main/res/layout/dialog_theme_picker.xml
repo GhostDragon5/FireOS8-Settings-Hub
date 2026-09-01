@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/theme_dialog_panel"
+    android:layout_width="420dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/theme_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_theme"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button_theme_graphite"
+        style="@style/Widget.FireOS8SettingsHub.DialogThemeChoice"
+        android:layout_marginTop="18dp"
+        android:text="@string/theme_graphite" />
+
+    <Button
+        android:id="@+id/button_theme_ocean"
+        style="@style/Widget.FireOS8SettingsHub.DialogThemeChoice"
+        android:text="@string/theme_ocean" />
+
+    <Button
+        android:id="@+id/button_theme_light"
+        style="@style/Widget.FireOS8SettingsHub.DialogThemeChoice"
+        android:text="@string/theme_light" />
+</LinearLayout>

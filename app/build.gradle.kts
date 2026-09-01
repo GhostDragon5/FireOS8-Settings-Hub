@@ -11,6 +11,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId = "com.fireos8.settingshub"
         minSdk = 23
@@ -22,4 +26,5 @@ android {
 
 dependencies {
     implementation("androidx.leanback:leanback:1.2.0-alpha04")
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
 }

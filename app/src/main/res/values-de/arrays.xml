@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="theme_names">
+        <item>Graphit</item>
+        <item>Ozean</item>
+        <item>Hell</item>
+    </string-array>
+</resources>

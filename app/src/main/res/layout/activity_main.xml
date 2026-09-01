@@ -1,115 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dashboard_host"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/background"
-    android:fillViewport="true">
+    android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/dashboard_root"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="72dp"
-        android:layout_marginVertical="32dp"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="20dp"
+        android:background="@color/background"
+        android:elevation="16dp"
+        android:orientation="vertical"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="20dp">
 
         <TextView
+            android:id="@+id/section_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/section_label"
             android:textColor="@color/accent"
-            android:textSize="13sp"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/dashboard_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="3dp"
             android:text="@string/app_name"
             android:textColor="@color/title"
-            android:textSize="34sp"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/dashboard_subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="2dp"
             android:text="@string/subtitle"
             android:textColor="@color/subtitle"
-            android:textSize="17sp" />
+            android:textSize="15sp" />
 
-        <GridLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dashboard_grid"
             android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:descendantFocusability="afterDescendants"
+            android:focusable="false"
+            android:paddingBottom="6dp" />
+
+        <TextView
+            android:id="@+id/edit_hint"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:alignmentMode="alignMargins"
-            android:columnCount="2"
-            android:useDefaultMargins="false">
-
-            <Button
-                android:id="@+id/button_display_sounds"
-                style="@style/Widget.FireOS8SettingsHub.Button"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:text="@string/display_sounds" />
-
-            <Button
-                android:id="@+id/button_network"
-                style="@style/Widget.FireOS8SettingsHub.Button"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:text="@string/network" />
-
-            <Button
-                android:id="@+id/button_apps"
-                style="@style/Widget.FireOS8SettingsHub.Button"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:text="@string/apps" />
-
-            <Button
-                android:id="@+id/button_controllers"
-                style="@style/Widget.FireOS8SettingsHub.Button"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:text="@string/controllers" />
-
-            <Button
-                android:id="@+id/button_device"
-                style="@style/Widget.FireOS8SettingsHub.Button"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:text="@string/device" />
-
-            <Button
-                android:id="@+id/button_account"
-                style="@style/Widget.FireOS8SettingsHub.Button"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:text="@string/account" />
-
-            <Button
-                android:id="@+id/button_accessibility"
-                style="@style/Widget.FireOS8SettingsHub.Button"
-                android:layout_columnSpan="2"
-                android:layout_columnWeight="1"
-                android:layout_gravity="fill_horizontal"
-                android:text="@string/accessibility" />
-        </GridLayout>
+            android:layout_marginBottom="4dp"
+            android:text="@string/edit_hint"
+            android:textColor="@color/accent"
+            android:textSize="12sp"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/credits"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/credits"
                 android:textColor="@color/subtitle"
-                android:textSize="14sp" />
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/button_theme"
+                style="@style/Widget.FireOS8SettingsHub.CloseButton"
+                android:text="@string/theme" />
+
+            <Button
+                android:id="@+id/button_edit"
+                style="@style/Widget.FireOS8SettingsHub.CloseButton"
+                android:text="@string/edit" />
 
             <Button
                 android:id="@+id/button_close"
@@ -117,4 +97,4 @@
                 android:text="@string/close" />
         </LinearLayout>
     </LinearLayout>
-</ScrollView>
+</FrameLayout>
