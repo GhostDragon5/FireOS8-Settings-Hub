@@ -1,6 +1,17 @@
 # Changelog
 
 Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
+
+## [Unreleased]
+
+### Fixed
+
+- Schwarzer Hintergrund während der Einfliege-Animation behoben (Monet Launcher):
+  Die Window-Animation wurde deaktiviert (`windowAnimationStyle` auf `@null`), damit das Fenster
+  mit dem Abdunklungs-Scrim sofort den gesamten Bildschirm abdeckt. Es wird nun ausschliesslich
+  das Panel selbst animiert. Zuvor fuhr das komplette Fenster von unten ein, wodurch der Bereich
+  oberhalb des einfahrenden Fensters unbedeckt blieb und der pausierte Launcher schwarz durchschien.
+
 ## [1.1.10] - 2026-09-01
 
 ### Fixed
