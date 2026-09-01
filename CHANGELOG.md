@@ -1,12 +1,12 @@
 # Changelog
 
 Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
-
-## [Unreleased]
+## [1.1.8] - 2026-09-01
 
 ### Added
 
 - Dezente Versionsanzeige oben rechts im Dashboard
+
 
 ## [1.1.7] - 2026-09-01
 
