@@ -3,13 +3,25 @@
 Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
 ## [1.1.11] - 2026-09-01
 
+### Added
+
+- Dashboard schwebt nun als echtes Overlay-Fenster (`SYSTEM_ALERT_WINDOW`) über dem Launcher,
+  damit dieser aktiv bleibt und nicht schwarz rendert.
+- Neuer `OverlayService` haelt das Dashboard stabil im Vordergrund.
+- Dialoge (Theme-Auswahl, Update) werden als Views im Overlay dargestellt.
+
+### Changed
+
+- `MainActivity` ist jetzt ein schlanker Starter: Sie prueft die Overlay-Berechtigung,
+  startet den Service und beendet sich sofort, damit der Launcher wieder fortgesetzt wird.
+- Die Dashboard-Logik wurde in die neue Klasse `DashboardOverlay` verschoben.
+
 ### Fixed
 
-- Schwarzer Hintergrund während der Einfliege-Animation behoben (Monet Launcher):
-  Die Window-Animation wurde deaktiviert (`windowAnimationStyle` auf `@null`), damit das Fenster
-  mit dem Abdunklungs-Scrim sofort den gesamten Bildschirm abdeckt. Es wird nun ausschliesslich
-  das Panel selbst animiert. Zuvor fuhr das komplette Fenster von unten ein, wodurch der Bereich
-  oberhalb des einfahrenden Fensters unbedeckt blieb und der pausierte Launcher schwarz durchschien.
+- Schwarzer Hintergrund beim Oeffnen behoben: Da der Launcher (Monet) nicht mehr pausiert wird,
+  bleibt er waehrend und nach der Einfliege-Animation sichtbar.
+- Einfliege-Animation funktioniert wieder: Die Animation wurde vor dem Anhaengen der View
+  gestartet und dadurch verworfen.
 
 
 ## [1.1.10] - 2026-09-01

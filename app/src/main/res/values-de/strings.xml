@@ -37,4 +37,5 @@
     <string name="update_downloading">Update wird heruntergeladen...</string>
     <string name="update_installed">Update installiert. App neu starten.</string>
     <string name="update_failed">Update fehlgeschlagen.</string>
+    <string name="overlay_permission_required">Bitte erlaube "Über anderen Apps einblenden", damit das Dashboard über dem Launcher schweben kann.</string>
 </resources>
