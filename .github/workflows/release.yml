@@ -1,19 +1,16 @@
-name: Create Release
+name: Build and Release
 
 on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: Release tag, for example v1.0.0
-        required: true
-        type: string
+  push:
+    branches:
+      - master
 
 permissions:
   contents: write
 
 jobs:
   release:
-    name: Build and publish APK
+    name: Build APK and create release
     runs-on: ubuntu-latest
 
     steps:
@@ -27,15 +24,17 @@ jobs:
           java-version: "17"
           cache: gradle
 
-      - name: Build debug APK
+      - name: Build versioned APK
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon
+          ./gradlew assembleDebug --no-daemon \
+            -PversionCode=${{ github.run_number }} \
+            -PversionName=1.1.${{ github.run_number }}
 
-      - name: Publish GitHub release
+      - name: Create GitHub release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: ${{ inputs.tag }}
-          name: FireOS8 Settings Hub ${{ inputs.tag }}
+          tag_name: v1.1.${{ github.run_number }}
+          name: FireOS8 Settings Hub v1.1.${{ github.run_number }}
           generate_release_notes: true
           files: app/build/outputs/apk/debug/app-debug.apk

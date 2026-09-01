@@ -2,6 +2,9 @@ plugins {
     id("com.android.application")
 }
 
+val releaseVersionCode = providers.gradleProperty("versionCode").orNull?.toIntOrNull() ?: 2
+val releaseVersionName = providers.gradleProperty("versionName").orNull ?: "1.1.0"
+
 android {
     namespace = "com.fireos8.settingshub"
     compileSdk = 35
@@ -19,8 +22,8 @@ android {
         applicationId = "com.fireos8.settingshub"
         minSdk = 23
         targetSdk = 28
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = releaseVersionCode
+        versionName = releaseVersionName
     }
 }
 
