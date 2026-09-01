@@ -4,6 +4,16 @@ Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert
 
 ## [Unreleased]
 
+### Added
+
+- Einblendanimation für das Dashboard beim App-Start
+
+### Changed
+
+- Releases enthalten nur noch die Änderungen ihrer jeweiligen Version
+
+## [1.1.3] - 2026-09-01
+
 ### Changed
 
 - Update-Popup an das Dashboard-Design angepasst

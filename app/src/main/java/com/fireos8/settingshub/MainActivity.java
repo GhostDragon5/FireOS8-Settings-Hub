@@ -10,6 +10,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -63,6 +64,9 @@ public class MainActivity extends Activity implements DashboardAdapter.Listener 
         findViewById(R.id.button_theme).setOnClickListener(view -> showThemePicker());
 
         applyTheme();
+        findViewById(R.id.dashboard_root).startAnimation(
+                AnimationUtils.loadAnimation(this, R.anim.dashboard_enter)
+        );
         checkRoot();
         checkForUpdate();
     }
