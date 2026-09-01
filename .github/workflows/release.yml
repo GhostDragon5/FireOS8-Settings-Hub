@@ -36,5 +36,5 @@ jobs:
         with:
           tag_name: v1.1.${{ github.run_number }}
           name: FireOS8 Settings Hub v1.1.${{ github.run_number }}
-          generate_release_notes: true
+          body_path: CHANGELOG.md
           files: app/build/outputs/apk/debug/app-debug.apk
