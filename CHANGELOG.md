@@ -1,8 +1,7 @@
 # Changelog
 
 Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
-
-## [Unreleased]
+## [1.1.7] - 2026-09-01
 
 ### Added
 
@@ -11,6 +10,7 @@ Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert
 ### Changed
 
 - Releases enthalten nur noch die Änderungen ihrer jeweiligen Version
+
 
 ## [1.1.3] - 2026-09-01
 
