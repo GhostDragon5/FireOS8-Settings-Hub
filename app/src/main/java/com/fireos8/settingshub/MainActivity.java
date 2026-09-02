@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
         } else {
             startService(new Intent(this, OverlayService.class));
         }
-        finishAndRemoveTask();
+        finish();
     }
 
     @Override
@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
                 startOverlay();
             } else {
                 Toast.makeText(this, R.string.overlay_permission_required, Toast.LENGTH_LONG).show();
-                finishAndRemoveTask();
+                moveTaskToBack(true);
             }
         }
     }
