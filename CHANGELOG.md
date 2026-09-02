@@ -1,8 +1,7 @@
 # Changelog
 
 Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
-
-## [Unreleased]
+## [1.2.0] - 2026-09-02
 
 ### Fixed
 
@@ -11,6 +10,7 @@ Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert
   Lifecycle-Timeouts und einen laengeren schwarzen Moment beim Start verursachte.
 - Starter-Activity rendert kein Fenster mehr (eigenes transparentes Theme ohne Preview
   und ohne Window-Animation).
+
 
 ## [1.1.12] - 2026-09-01
 ### Changed
