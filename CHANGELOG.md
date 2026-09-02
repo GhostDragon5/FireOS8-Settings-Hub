@@ -1,6 +1,17 @@
 # Changelog
 
 Alle wichtigen Änderungen an diesem Projekt werden in dieser Datei dokumentiert.
+
+## [Unreleased]
+
+### Fixed
+
+- Overlay erscheint erst, nachdem die Starter-Activity vollstaendig zerstoert wurde.
+  Zuvor ueberlappte der Overlay-Fokus mit dem Pausieren der Activity, was
+  Lifecycle-Timeouts und einen laengeren schwarzen Moment beim Start verursachte.
+- Starter-Activity rendert kein Fenster mehr (eigenes transparentes Theme ohne Preview
+  und ohne Window-Animation).
+
 ## [1.1.12] - 2026-09-01
 ### Changed
 - Show dashboard as launcher overlay
